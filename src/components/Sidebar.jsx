@@ -195,15 +195,13 @@ function Sidebar({
           overflow-x-hidden
 
           px-[10px]
-          py-3
+          py-2
 
           transition-opacity
           duration-[220ms]
 
-          [scrollbar-width:thin]
-          [&::-webkit-scrollbar]:w-1
-          [&::-webkit-scrollbar-thumb]:bg-white/[0.10]
-          [&::-webkit-scrollbar-thumb]:rounded-[2px]
+        [scrollbar-width:none]
+        [&::-webkit-scrollbar]:hidden
 
           ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
         `}
@@ -321,30 +319,18 @@ function Sidebar({
         </div>
 
         {/* KPI CATALOG */}
-        {mode === "goals" ? (
-          <div className="py-10 text-center text-white/[0.4]">
-            <div className="text-3xl">🎯</div>
 
-            <div className="text-[13px] font-bold text-white mt-3">
-              Objectives
-            </div>
+        <>
+          {filteredCategories.map((category) => {
+            const isOpen = openCategories[category.categoryId];
 
-            <div className="text-[11px] mt-1">
-              Objectives will be added here.
-            </div>
-          </div>
-        ) : (
-          <>
-            {filteredCategories.map((category) => {
-              const isOpen = openCategories[category.categoryId];
-
-              return (
-                <div key={category.categoryId} className="mb-[6px]">
-                  {/* CATEGORY HEADER */}
-                  <button
-                    type="button"
-                    onClick={() => toggleCategory(category.categoryId)}
-                    className="
+            return (
+              <div key={category.categoryId} className="mb-[6px]">
+                {/* CATEGORY HEADER */}
+                <button
+                  type="button"
+                  onClick={() => toggleCategory(category.categoryId)}
+                  className="
                       w-full
 
                       flex
@@ -367,13 +353,11 @@ function Sidebar({
 
                       hover:bg-white/[0.06]
                     "
-                  >
-                    <span className="text-[13px] shrink-0">
-                      {category.icon}
-                    </span>
+                >
+                  <span className="text-[13px] shrink-0">{category.icon}</span>
 
-                    <span
-                      className="
+                  <span
+                    className="
                         flex-1
                         text-[11px]
                         font-bold
@@ -383,16 +367,16 @@ function Sidebar({
 
                         text-white/[0.45]
                       "
-                    >
-                      {category.label}
-                    </span>
+                  >
+                    {category.label}
+                  </span>
 
-                    <span className="text-[10px] font-semibold text-white/[0.25]">
-                      {category.kpis.length}
-                    </span>
+                  <span className="text-[10px] font-semibold text-white/[0.25]">
+                    {category.kpis.length}
+                  </span>
 
-                    <span
-                      className={`
+                  <span
+                    className={`
                         text-[9px]
                         text-white/[0.25]
 
@@ -401,23 +385,23 @@ function Sidebar({
 
                         ${isOpen ? "rotate-90" : "rotate-0"}
                       `}
-                    >
-                      ▶
-                    </span>
-                  </button>
+                  >
+                    ▶
+                  </span>
+                </button>
 
-                  {/* KPI ITEMS */}
-                  {isOpen && (
-                    <div className="pl-1">
-                      {category.kpis.map((kpi) => {
-                        const selected = selectedKpis.includes(kpi.id);
+                {/* KPI ITEMS */}
+                {isOpen && (
+                  <div className="pl-1">
+                    {category.kpis.map((kpi) => {
+                      const selected = selectedKpis.includes(kpi.id);
 
-                        return (
-                          <button
-                            key={kpi.id}
-                            type="button"
-                            onClick={() => handleKpiClick(kpi.id)}
-                            className={`
+                      return (
+                        <button
+                          key={kpi.id}
+                          type="button"
+                          onClick={() => handleKpiClick(kpi.id)}
+                          className={`
                               w-full
 
                               flex
@@ -448,24 +432,24 @@ function Sidebar({
                                   : "hover:bg-white/[0.07]"
                               }
                             `}
-                          >
-                            {/* KPI DOT */}
-                            <span
-                              className="
+                        >
+                          {/* KPI DOT */}
+                          <span
+                            className="
                                 w-[7px]
                                 h-[7px]
 
                                 rounded-full
                                 shrink-0
                               "
-                              style={{
-                                backgroundColor: kpi.color || "#E20074",
-                              }}
-                            />
+                            style={{
+                              backgroundColor: kpi.color || "#E20074",
+                            }}
+                          />
 
-                            {/* KPI NAME */}
-                            <span
-                              className="
+                          {/* KPI NAME */}
+                          <span
+                            className="
                                 flex-1
 
                                 text-[12px]
@@ -475,27 +459,27 @@ function Sidebar({
                                 overflow-hidden
                                 text-ellipsis
                               "
-                            >
-                              {kpi.name}
-                            </span>
+                          >
+                            {kpi.name}
+                          </span>
 
-                            {/* KPI VALUE */}
-                            <span
-                              className="
+                          {/* KPI VALUE */}
+                          <span
+                            className="
                                 text-[11px]
                                 text-white/[0.35]
 
                                 whitespace-nowrap
                               "
-                            >
-                              {kpi.valFmt}
-                              {kpi.unit}
-                            </span>
+                          >
+                            {kpi.valFmt}
+                            {kpi.unit}
+                          </span>
 
-                            {/* COMPARE CHECK */}
-                            {mode === "compare" && (
-                              <span
-                                className={`
+                          {/* COMPARE CHECK */}
+                          {mode === "compare" && (
+                            <span
+                              className={`
                                   w-[18px]
                                   h-[18px]
 
@@ -520,27 +504,26 @@ function Sidebar({
                                       : "bg-transparent border-white/[0.25] text-transparent"
                                   }
                                 `}
-                              >
-                                ✓
-                              </span>
-                            )}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-
-            {/* NO SEARCH RESULT */}
-            {filteredCategories.length === 0 && (
-              <div className="text-center py-10 text-[11px] text-white/[0.4]">
-                No KPIs found
+                            >
+                              ✓
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
-            )}
-          </>
-        )}
+            );
+          })}
+
+          {/* NO SEARCH RESULT */}
+          {filteredCategories.length === 0 && (
+            <div className="text-center py-10 text-[11px] text-white/[0.4]">
+              No KPIs found
+            </div>
+          )}
+        </>
       </div>
 
       {/* COMPARE FOOTER */}
