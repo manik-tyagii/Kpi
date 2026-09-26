@@ -14,6 +14,7 @@ import DonutChartWidget from "./charts/DonutChartWidget";
 import GaugeWidget from "./charts/GaugeWidget";
 import TableWidget from "./charts/TableWidget";
 import CompareChart from "./charts/CompareChart";
+import StatChartWidget from "./charts/StatChartWidget";
 
 function WidgetCard({
   widget,
@@ -47,6 +48,7 @@ function WidgetCard({
   const renderChart = () => {
     switch (widget.type) {
       case "stat":
+        return <StatChartWidget kpi={kpi} />;
       case "line":
         return <LineChartWidget kpi={kpi} />;
 
