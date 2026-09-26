@@ -1,15 +1,17 @@
+import NavButton from "./NavButton";
+import "./variable.css";
+
 function Navbar({ dashboardName, setDashboardName, onClearAll }) {
   return (
     <header
       className="
-        h-[52px]
+        h-13
         shrink-0
-        bg-white
-        border-b
-        border-black/[0.08]
+        bg-(--surface)
+        border-b border-(--border)
         flex
         items-center
-        gap-[10px]
+        gap-2.5
         px-5
       "
     >
@@ -22,11 +24,14 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
           className="
             text-[15px]
             font-bold
-            text-[#111113]
-            border-none
+            text-(--ink)
+            border-transparent
             bg-transparent
             outline-none
-            min-w-[80px]
+            min-w-20
+            border-b
+            focus:border-b-2
+            focus:border-b-[var(--brand)]
           "
         />
 
@@ -37,10 +42,10 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
             font-bold
             uppercase
             tracking-[0.06em]
-            bg-[rgba(226,0,116,0.09)]
-            text-[#E20074]
+            bg-(--brand-wash)
+            text-(--brand)
             px-2
-            py-[2px]
+            py-0.5
             rounded-[20px]
           "
         >
@@ -51,92 +56,62 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
       <span className="flex-1" />
 
       {/* Location */}
-      <button
-        type="button"
+      <div
         className="
           flex
           items-center
-          gap-[5px]
-          bg-[#f7f7f8]
+          gap-1.5
+          bg-(--surface-2)
           border
-          border-black/[0.13]
+          border-(--border-2)
+           hover:border-[var(--brand)]
           rounded-lg
-          px-[10px]
-          py-[5px]
+          px-2.5
+          py-1.25
           text-[12px]
-          text-[#111113]
+          text-(--ink)
           font-medium
+          cursor-pointer
+         transition-[border-color]
+        duration:var(--trans)
+
         "
       >
-        <span className="text-[#8e8e97]">Location:</span>
+        <span className="text-(--ink-3)">Location:</span>
         <span>National</span>
-        <span className="text-[#8e8e97] text-[9px] ml-[2px]">▾</span>
-      </button>
+        <span className="text-(--ink-3) text-[9px] ml-0.5">▾</span>
+      </div>
 
       {/* Timeline */}
-      <button
-        type="button"
+      <div
         className="
           flex
           items-center
-          gap-[5px]
-          bg-[#f7f7f8]
+          gap-1.5
+          bg-(--surface-2)
           border
-          border-black/[0.13]
+          border-(--border-2)
+           hover:border-[var(--brand)]
           rounded-lg
-          px-[10px]
-          py-[5px]
+          px-2.5
+          py-1.25
           text-[12px]
-          text-[#111113]
+          text-(--ink)
           font-medium
+          cursor-pointer
+         transition-[border-color]
+        duration:var(--trans)
+
         "
       >
-        <span className="text-[#8e8e97]">Timeline:</span>
+        <span className="text-(--ink-3)">Timeline:</span>
         <span>Monthly – Aug'26</span>
-        <span className="text-[#8e8e97] text-[9px] ml-[2px]">▾</span>
-      </button>
+        <span className="text-(--ink-3) text-[9px] ml-0.5">▾</span>
+      </div>
 
-      {/* Download */}
-      <button
-        type="button"
-        title="Download"
-        className="
-          w-8
-          h-8
-          border
-          border-black/[0.08]
-          rounded-lg
-          bg-[#f7f7f8]
-          text-[#4a4a52]
-          flex
-          items-center
-          justify-center
-          text-[14px]
-        "
-      >
-        ↓
-      </button>
-
-      {/* Share */}
-      <button
-        type="button"
-        title="Share"
-        className="
-          w-8
-          h-8
-          border
-          border-black/[0.08]
-          rounded-lg
-          bg-[#f7f7f8]
-          text-[#4a4a52]
-          flex
-          items-center
-          justify-center
-          text-[14px]
-        "
-      >
-        ↗
-      </button>
+      {/* Buttons */}
+      <NavButton icon={"↓"} title={"Download"} />
+      <NavButton icon={"↗"} title={"Share"} />
 
       {/* Clear All */}
       <button
@@ -145,15 +120,18 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
         className="
           flex
           items-center
-          gap-[5px]
-          bg-[#E20074]
+          gap-1.25
+          bg-(--brand)
           text-white
           border-none
           rounded-lg
-          px-[14px]
-          py-[6px]
+          px-3.5
+          py-1.5
           text-[12px]
           font-semibold
+          hover:bg-(--brand-mid)
+          transition-[background-color]
+          duration:var(--trans)
         "
       >
         🗑 Clear All

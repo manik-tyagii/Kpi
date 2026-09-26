@@ -219,7 +219,7 @@ function App() {
             type="button"
             onClick={() => setSidebarOpen(true)}
             className="
-              fixed left-3 top-3 z-[200]
+              fixed left-3 top-3 z-200
               w-9 h-9
               rounded-lg
               bg-[#E20074] text-white
@@ -248,7 +248,7 @@ function App() {
               overflow-y-auto
               overflow-x-hidden
               px-5
-              pt-[18px]
+              pt-4.5
               pb-10
               relative
             "
