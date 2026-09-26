@@ -318,36 +318,6 @@ function Sidebar({
           >
             Compare
           </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              setMode("goals");
-              setMultiSel([]);
-            }}
-            className={`
-              flex-1
-              px-0
-              py-[6px]
-
-              border-none
-              rounded-[6px]
-
-              text-[11px]
-              font-semibold
-
-              transition-all
-              duration-[220ms]
-
-              ${
-                mode === "goals"
-                  ? "bg-[#E20074] text-white"
-                  : "bg-white/[0.06] text-white/[0.4] hover:text-white"
-              }
-            `}
-          >
-            🎯 Goals
-          </button>
         </div>
 
         {/* KPI CATALOG */}
