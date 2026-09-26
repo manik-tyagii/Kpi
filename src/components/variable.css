@@ -1,0 +1,45 @@
+:root {
+  --brand: #e20074;
+  --brand-mid: #b8005d;
+  --brand-dark: #7a003d;
+  --brand-wash: rgba(226, 0, 116, 0.09);
+  --brand-wash2: rgba(226, 0, 116, 0.16);
+
+  --sidebar-bg: #130a11;
+  --sidebar-2: #1e1019;
+  --sidebar-3: #2a1523;
+  --bg: #f0f0f2;
+
+  --surface: #ffffff;
+  --surface-2: #f7f7f8;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-2: rgba(0, 0, 0, 0.13);
+  --ink: #111113;
+  --ink-2: #4a4a52;
+  --ink-3: #8e8e97;
+  --ink-4: #c4c4cc;
+  --pos: #1baf7a;
+  --pos-wash: rgba(27, 175, 122, 0.1);
+  --neg: #e34948;
+  --neg-wash: rgba(227, 73, 72, 0.1);
+  --warn: #f59e0b;
+  --warn-wash: rgba(245, 158, 11, 0.1);
+  --s1: #e20074;
+  --s2: #2a78d6;
+  --s3: #1baf7a;
+  --s4: #eb6834;
+  --s5: #eda100;
+  --s6: #4a3aa7;
+  --r: 12px;
+  --rs: 8px;
+  --rx: 20px;
+  --sh: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --sh2: 0 2px 8px rgba(0, 0, 0, 0.1), 0 12px 32px rgba(0, 0, 0, 0.1);
+  --sh3: 0 4px 16px rgba(0, 0, 0, 0.14), 0 24px 64px rgba(0, 0, 0, 0.14);
+  --sidebar-w: 268px;
+  --topbar-h: 52px;
+  --cfg-w: 256px;
+  --trans: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+

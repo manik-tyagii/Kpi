@@ -27,7 +27,7 @@ function ConfigPanel({
         h-full
         bg-white
         border-l
-        border-black/[0.08]
+        border-(--border)
         flex
         flex-col
         shrink-0
@@ -37,11 +37,11 @@ function ConfigPanel({
       {/* Header */}
       <div
         className="
-          px-[14px]
-          pt-[14px]
-          pb-[10px]
+          px-3.5
+          pt-3.5
+          pb-2.5
           border-b
-          border-black/[0.08]
+          border-(--border)
           flex
           items-center
           justify-between
@@ -59,16 +59,16 @@ function ConfigPanel({
             w-6
             h-6
             border-none
-            bg-[#f7f7f8]
-            rounded-[6px]
-            text-[#8e8e97]
+            bg-(--surface-2)
+            rounded-md
+            text-(--ink-3)
             text-[14px]
             flex
             items-center
             justify-center
             transition-all
-            hover:bg-[rgba(227,73,72,0.10)]
-            hover:text-[#e34948]
+            hover:bg-(--neg-wash)
+            hover:text-(--neg)
           "
         >
           ✕
@@ -76,23 +76,22 @@ function ConfigPanel({
       </div>
 
       {/* Body */}
-      <div className="flex-1 min-h-0 overflow-y-auto p-[14px]">
-        {/* KPI Info */}
-        <div className="bg-[#f7f7f8] rounded-[8px] p-[10px_12px] mb-3">
-          <div className="text-[13px] font-bold text-[#111113] mb-1 truncate">
+      <div className="flex-1 min-h-0 overflow-y-auto p-3.5">
+        <div className="bg-[#f7f7f8] rounded-lg p-[10px_12px] mb-3">
+          <div className="text-[13px] font-bold text-(--ink) mb-1 truncate">
             {kpi.name}
           </div>
 
-          <div className="text-[11px] text-[#8e8e97]">{kpi.desc}</div>
+          <div className="text-[11px] text-(--ink-3)">{kpi.desc}</div>
 
-          <div className="text-[11px] text-[#8e8e97] mt-[2px]">
+          <div className="text-[11px] text-(--ink-3) mt-0.5">
             {kpi.valFmt}
             {kpi.unit} · Jul 2026
           </div>
         </div>
 
         {/* Widget Type */}
-        <div className="mb-[18px]">
+        <div className="mb-4.5">
           <span
             className="
               block
@@ -100,14 +99,14 @@ function ConfigPanel({
               font-bold
               uppercase
               tracking-[0.08em]
-              text-[#8e8e97]
+              text-(--ink-3)
               mb-2
             "
           >
             Widget Type
           </span>
 
-          <div className="grid grid-cols-2 gap-[5px]">
+          <div className="grid grid-cols-2 gap-1.25">
             {WIDGET_TYPES.map((type) => (
               <button
                 key={type.id}
@@ -116,20 +115,20 @@ function ConfigPanel({
                 className={`
                   p-[8px_6px]
                   border-[1.5px]
-                  rounded-[8px]
-                  bg-[#f7f7f8]
-                  text-[#4a4a52]
+                  rounded-lg
+                  bg-(--surface-2)
+                  text-(--ink-2)
                   flex
                   flex-col
                   items-center
-                  gap-[3px]
+                  gap-0.75
                   text-[11px]
                   font-medium
                   transition-all
                   ${
                     widget.type === type.id
-                      ? "border-[#E20074] bg-[rgba(226,0,116,0.09)] text-[#E20074]"
-                      : "border-black/[0.08] hover:border-black/[0.13] hover:bg-white"
+                      ? "border-(--brand) bg-(--brand-wash) text-(--brand)"
+                      : "border-(--border) hover:border-(--border) hover:bg-white"
                   }
                 `}
               >
@@ -142,7 +141,7 @@ function ConfigPanel({
         </div>
 
         {/* Pocket Size */}
-        <div className="mb-[18px]">
+        <div className="mb-4.5">
           <span
             className="
               block
@@ -150,14 +149,14 @@ function ConfigPanel({
               font-bold
               uppercase
               tracking-[0.08em]
-              text-[#8e8e97]
+              text-(--ink-3)
               mb-2
             "
           >
             Pocket Size
           </span>
 
-          <div className="flex gap-[5px]">
+          <div className="flex gap-1.25">
             {SIZE_DEFS.map((size) => (
               <button
                 key={size.id}
@@ -165,18 +164,18 @@ function ConfigPanel({
                 onClick={() => onSizeChange(size.id)}
                 className={`
                   flex-1
-                  py-[7px]
+                  py-1.75
                   border-[1.5px]
                   rounded-[7px]
-                  bg-[#f7f7f8]
-                  text-[#4a4a52]
+                  bg-(--surface-2)
+                  text-(--ink-2)
                   text-[12px]
                   font-bold
                   transition-all
                   ${
                     widget.size === size.id
-                      ? "border-[#E20074] bg-[rgba(226,0,116,0.09)] text-[#E20074]"
-                      : "border-black/[0.08] hover:border-black/[0.13]"
+                      ? "border-(--brand) bg-(--brand-wash) text-(--brand)"
+                      : "border-(--border) hover:border-(--border)"
                   }
                 `}
               >
@@ -192,19 +191,19 @@ function ConfigPanel({
           onClick={onDrilldown}
           className="
             w-full
-            py-[9px]
+            py-2.5
             border-[1.5px]
-            border-black/[0.08]
+            border-(--border)
             rounded-[7px]
-            bg-[#f7f7f8]
-            text-[#4a4a52]
+            bg-(--surface-2)
+            text-(--ink-2)
             text-[12px]
             font-semibold
             transition-all
             mb-2
-            hover:border-[#E20074]
-            hover:text-[#E20074]
-            hover:bg-[rgba(226,0,116,0.09)]
+            hover:border-(--brand)
+            hover:text-(--brand)
+            hover:bg-(--brand-wash)
           "
         >
           🔍 Drill Down
@@ -216,16 +215,16 @@ function ConfigPanel({
           onClick={onRemove}
           className="
             w-full
-            py-[9px]
+            py-2.25
             border-[1.5px]
-            border-[rgba(227,73,72,0.10)]
+            border-(--neg-wash)
             rounded-[7px]
             bg-transparent
-            text-[#e34948]
+            text-(--neg)
             text-[12px]
             font-semibold
             transition-all
-            hover:bg-[rgba(227,73,72,0.10)]
+            hover:bg-(--neg-wash)
           "
         >
           Remove Widget
