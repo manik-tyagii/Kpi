@@ -13,10 +13,6 @@ import {
 function DrilldownModal({ kpi, onClose }) {
   if (!kpi) return null;
 
-  // =========================================
-  // MONTHLY DATA
-  // =========================================
-
   const months = Array.isArray(kpi.months) ? kpi.months : [];
   const values = Array.isArray(kpi.data) ? kpi.data : [];
 
