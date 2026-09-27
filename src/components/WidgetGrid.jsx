@@ -13,15 +13,7 @@ function WidgetGrid({
   }
 
   return (
-    <div
-      id="widget-grid"
-      className="
-        grid
-        grid-cols-12
-        gap-[14px]
-        items-start
-      "
-    >
+    <div id="widget-grid" className="grid grid-cols-12 gap-[14px] items-start">
       {widgets.map((widget) => (
         <WidgetCard
           key={widget.id}

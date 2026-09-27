@@ -94,7 +94,6 @@ function Sidebar({
         ${sidebarOpen ? "w-[268px] min-w-[268px]" : "w-[56px] min-w-[56px]"}
       `}
     >
-      {/* HEADER */}
       <div
         className="
           px-[14px]
@@ -111,7 +110,6 @@ function Sidebar({
           shrink-0
         "
       >
-        {/* Logo */}
         <div
           className="
             w-[30px]
@@ -133,7 +131,6 @@ function Sidebar({
           K
         </div>
 
-        {/* Brand */}
         <div
           className={`
             flex-1
@@ -154,7 +151,6 @@ function Sidebar({
           </p>
         </div>
 
-        {/* Collapse */}
         <button
           type="button"
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -186,7 +182,6 @@ function Sidebar({
         </button>
       </div>
 
-      {/* SIDEBAR BODY */}
       <div
         className={`
           flex-1
@@ -206,7 +201,6 @@ function Sidebar({
           ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
         `}
       >
-        {/* SEARCH */}
         <div className="relative mb-3">
           <span
             className="
@@ -258,7 +252,6 @@ function Sidebar({
           />
         </div>
 
-        {/* MODE BAR */}
         <div className="flex gap-1 mb-[14px]">
           <button
             type="button"
@@ -318,15 +311,12 @@ function Sidebar({
           </button>
         </div>
 
-        {/* KPI CATALOG */}
-
         <>
           {filteredCategories.map((category) => {
             const isOpen = openCategories[category.categoryId];
 
             return (
               <div key={category.categoryId} className="mb-[6px]">
-                {/* CATEGORY HEADER */}
                 <button
                   type="button"
                   onClick={() => toggleCategory(category.categoryId)}
@@ -390,7 +380,6 @@ function Sidebar({
                   </span>
                 </button>
 
-                {/* KPI ITEMS */}
                 {isOpen && (
                   <div className="pl-1">
                     {category.kpis.map((kpi) => {
@@ -433,7 +422,6 @@ function Sidebar({
                               }
                             `}
                         >
-                          {/* KPI DOT */}
                           <span
                             className="
                                 w-[7px]
@@ -447,7 +435,6 @@ function Sidebar({
                             }}
                           />
 
-                          {/* KPI NAME */}
                           <span
                             className="
                                 flex-1
@@ -463,7 +450,6 @@ function Sidebar({
                             {kpi.name}
                           </span>
 
-                          {/* KPI VALUE */}
                           <span
                             className="
                                 text-[11px]
@@ -476,7 +462,6 @@ function Sidebar({
                             {kpi.unit}
                           </span>
 
-                          {/* COMPARE CHECK */}
                           {mode === "compare" && (
                             <span
                               className={`
@@ -517,7 +502,6 @@ function Sidebar({
             );
           })}
 
-          {/* NO SEARCH RESULT */}
           {filteredCategories.length === 0 && (
             <div className="text-center py-10 text-[11px] text-white/[0.4]">
               No KPIs found
@@ -526,7 +510,6 @@ function Sidebar({
         </>
       </div>
 
-      {/* COMPARE FOOTER */}
       {mode === "compare" && (
         <div
           className={`
