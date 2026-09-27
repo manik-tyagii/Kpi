@@ -150,11 +150,9 @@ function EmptyState({ onQuickStart }) {
         </text>
       </svg>
 
-      <h3 className="text-[16px] font-bold text-[#4a4a52] mb-2">
-        Build your dashboard
-      </h3>
+      <h1 className="text-[16px] font-bold  mb-2">Build your dashboard</h1>
 
-      <p className="text-[13px] text-[#8e8e97] mb-5 max-w-[300px] leading-[1.6]">
+      <p className="text-[15px] text-[#8e8e97] mb-5 max-w-[300px] leading-[1.6]">
         Click any KPI in the sidebar to add a widget, start from a quick
         template below.
       </p>
