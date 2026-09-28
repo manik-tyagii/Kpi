@@ -11,14 +11,12 @@ function EmptyState({ onQuickStart }) {
         text-center
       "
     >
-
       <svg
         className="w-[160px] mb-5 opacity-[0.55]"
         viewBox="0 0 200 140"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-
         <rect
           x="10"
           y="20"
@@ -158,8 +156,7 @@ function EmptyState({ onQuickStart }) {
 
       <p className="text-[13px] text-[#8e8e97] mb-5 max-w-[300px] leading-[1.6]">
         Click any KPI in the sidebar to add a widget, start from a quick
-        template below, or switch to <strong>🎯 Goals</strong> to generate a
-        dashboard from a business objective.
+        template below
       </p>
 
       <div className="flex gap-2 flex-wrap justify-center mt-2">
