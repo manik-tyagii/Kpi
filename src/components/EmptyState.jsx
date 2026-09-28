@@ -11,14 +11,14 @@ function EmptyState({ onQuickStart }) {
         text-center
       "
     >
-      {/* Dashboard Preview */}
+
       <svg
         className="w-[160px] mb-5 opacity-[0.55]"
         viewBox="0 0 200 140"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* L1 */}
+
         <rect
           x="10"
           y="20"
@@ -40,7 +40,6 @@ function EmptyState({ onQuickStart }) {
           opacity="0.4"
         />
 
-        {/* L2 */}
         <rect
           x="75"
           y="20"
@@ -62,7 +61,6 @@ function EmptyState({ onQuickStart }) {
           opacity="0.3"
         />
 
-        {/* Bottom Left */}
         <rect
           x="10"
           y="85"
@@ -84,7 +82,6 @@ function EmptyState({ onQuickStart }) {
           opacity="0.3"
         />
 
-        {/* Bottom Right */}
         <rect
           x="108"
           y="85"
@@ -106,7 +103,6 @@ function EmptyState({ onQuickStart }) {
           opacity="0.3"
         />
 
-        {/* Labels */}
         <text
           x="37"
           y="52"
@@ -156,19 +152,16 @@ function EmptyState({ onQuickStart }) {
         </text>
       </svg>
 
-      {/* Heading */}
       <h3 className="text-[16px] font-bold text-[#4a4a52] mb-2">
         Build your dashboard
       </h3>
 
-      {/* Description */}
       <p className="text-[13px] text-[#8e8e97] mb-5 max-w-[300px] leading-[1.6]">
         Click any KPI in the sidebar to add a widget, start from a quick
         template below, or switch to <strong>🎯 Goals</strong> to generate a
         dashboard from a business objective.
       </p>
 
-      {/* Quick Start */}
       <div className="flex gap-2 flex-wrap justify-center mt-2">
         <button
           type="button"
