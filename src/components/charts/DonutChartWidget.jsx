@@ -20,7 +20,6 @@ function DonutChartWidget({ kpi }) {
 
   return (
     <div className="flex items-center gap-4 px-3 py-[14px]">
-      {/* Donut */}
       <div className="w-[110px] h-[110px] flex-shrink-0">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
@@ -51,7 +50,6 @@ function DonutChartWidget({ kpi }) {
         </ResponsiveContainer>
       </div>
 
-      {/* Rows */}
       <div className="flex flex-col gap-2 ">
         {chartData.map((item, index) => (
           <div

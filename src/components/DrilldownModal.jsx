@@ -13,10 +13,6 @@ import {
 function DrilldownModal({ kpi, onClose }) {
   if (!kpi) return null;
 
-  // =========================================
-  // MONTHLY DATA
-  // =========================================
-
   const months = Array.isArray(kpi.months) ? kpi.months : [];
   const values = Array.isArray(kpi.data) ? kpi.data : [];
 
@@ -27,34 +23,18 @@ function DrilldownModal({ kpi, onClose }) {
     }))
     .filter((item) => Number.isFinite(item.value));
 
-  // =========================================
-  // CURRENT VALUE
-  // =========================================
-
   const currentValue =
     monthlyData.length > 0
       ? monthlyData[monthlyData.length - 1].value
       : Number(kpi.val) || 0;
 
-  // =========================================
-  // PREVIOUS VALUE
-  // =========================================
-
   const previousValue =
     monthlyData.length > 1 ? monthlyData[monthlyData.length - 2].value : null;
-
-  // =========================================
-  // MOM CHANGE
-  // =========================================
 
   const momChange =
     previousValue !== null && previousValue !== 0
       ? ((currentValue - previousValue) / previousValue) * 100
       : null;
-
-  // =========================================
-  // PERIOD CHANGE
-  // =========================================
 
   const firstValue = monthlyData.length > 0 ? monthlyData[0].value : null;
 
@@ -63,19 +43,11 @@ function DrilldownModal({ kpi, onClose }) {
       ? ((currentValue - firstValue) / firstValue) * 100
       : null;
 
-  // =========================================
-  // PERIOD AVERAGE
-  // =========================================
-
   const periodAverage =
     monthlyData.length > 0
       ? monthlyData.reduce((sum, item) => sum + item.value, 0) /
         monthlyData.length
       : null;
-
-  // =========================================
-  // REGIONAL DATA
-  // =========================================
 
   const regionData = Object.entries(kpi.regions || {}).map(
     ([region, value]) => ({
@@ -83,10 +55,6 @@ function DrilldownModal({ kpi, onClose }) {
       value: Number(value) || 0,
     }),
   );
-
-  // =========================================
-  // FORMAT NUMBER
-  // =========================================
 
   const formatNumber = (value) => {
     if (
@@ -102,10 +70,6 @@ function DrilldownModal({ kpi, onClose }) {
     });
   };
 
-  // =========================================
-  // FORMAT VALUE
-  // =========================================
-
   const formatValue = (value) => {
     if (value === null || value === undefined) {
       return "-";
@@ -113,10 +77,6 @@ function DrilldownModal({ kpi, onClose }) {
 
     return `${formatNumber(value)}${kpi.unit || ""}`;
   };
-
-  // =========================================
-  // FORMAT PERCENT
-  // =========================================
 
   const formatPercent = (value) => {
     if (
@@ -131,10 +91,6 @@ function DrilldownModal({ kpi, onClose }) {
 
     return `${sign}${Number(value).toFixed(2)}%`;
   };
-
-  // =========================================
-  // CHART Y-AXIS DOMAIN
-  // =========================================
 
   let chartMin = 0;
   let chartMax = 100;
@@ -160,7 +116,6 @@ function DrilldownModal({ kpi, onClose }) {
     }
   }
 
-  // Round domain nicely
   const domainRange = chartMax - chartMin;
   const step = domainRange > 0 ? domainRange / 5 : 1;
 
@@ -182,10 +137,6 @@ function DrilldownModal({ kpi, onClose }) {
       "
       onClick={onClose}
     >
-      {/* =====================================
-          MODAL PANEL
-      ===================================== */}
-
       <div
         className="
           bg-white
@@ -200,10 +151,6 @@ function DrilldownModal({ kpi, onClose }) {
         "
         onClick={(event) => event.stopPropagation()}
       >
-        {/* =====================================
-            HEADER
-        ===================================== */}
-
         <div
           className="
             px-[22px]
@@ -217,7 +164,6 @@ function DrilldownModal({ kpi, onClose }) {
             shrink-0
           "
         >
-          {/* LEFT */}
           <div className="flex-1 min-w-0">
             <h2 className="text-[18px] font-bold text-[#111113] mb-[2px]">
               {kpi.name}
@@ -228,7 +174,6 @@ function DrilldownModal({ kpi, onClose }) {
             </p>
           </div>
 
-          {/* RIGHT */}
           <div className="flex items-center gap-2">
             <div className="text-right">
               <div className="text-[28px] font-bold text-[#111113]">
@@ -258,7 +203,6 @@ function DrilldownModal({ kpi, onClose }) {
               </div>
             </div>
 
-            {/* CLOSE */}
             <button
               type="button"
               onClick={onClose}
@@ -284,17 +228,8 @@ function DrilldownModal({ kpi, onClose }) {
           </div>
         </div>
 
-        {/* =====================================
-            BODY
-        ===================================== */}
-
         <div className="p-5 flex-1">
-          {/* =====================================
-              KPI SUMMARY
-          ===================================== */}
-
           <div className="grid grid-cols-4 gap-2.5 mb-[18px]">
-            {/* CURRENT */}
             <div
               className="
                 bg-[#f7f7f8]
@@ -319,7 +254,6 @@ function DrilldownModal({ kpi, onClose }) {
               </div>
             </div>
 
-            {/* MOM */}
             <div
               className="
                 bg-[#f7f7f8]
@@ -344,7 +278,6 @@ function DrilldownModal({ kpi, onClose }) {
               </div>
             </div>
 
-            {/* PERIOD CHANGE */}
             <div
               className="
                 bg-[#f7f7f8]
@@ -367,7 +300,6 @@ function DrilldownModal({ kpi, onClose }) {
               </div>
             </div>
 
-            {/* AVERAGE */}
             <div
               className="
                 bg-[#f7f7f8]
@@ -393,12 +325,7 @@ function DrilldownModal({ kpi, onClose }) {
             </div>
           </div>
 
-          {/* =====================================
-              CHARTS
-          ===================================== */}
-
           <div className="grid grid-cols-[2fr_1fr] gap-4 mb-[18px]">
-            {/* 6 MONTH TREND */}
             <div
               className="
                 bg-[#f7f7f8]
@@ -512,7 +439,6 @@ function DrilldownModal({ kpi, onClose }) {
               </div>
             </div>
 
-            {/* REGIONAL SPLIT */}
             <div
               className="
                 bg-[#f7f7f8]
@@ -579,10 +505,6 @@ function DrilldownModal({ kpi, onClose }) {
               </div>
             </div>
           </div>
-
-          {/* =====================================
-              MONTHLY DETAIL
-          ===================================== */}
 
           <div
             className="

@@ -15,7 +15,6 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
         px-5
       "
     >
-      {/* Dashboard Name */}
       <div className="flex items-center gap-2">
         <input
           value={dashboardName}
@@ -35,7 +34,6 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
           "
         />
 
-        {/* LIVE Badge */}
         <span
           className="
             text-[10px]
@@ -55,7 +53,6 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
 
       <span className="flex-1" />
 
-      {/* Location */}
       <div
         className="
           flex
@@ -82,7 +79,6 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
         <span className="text-(--ink-3) text-[9px] ml-0.5">▾</span>
       </div>
 
-      {/* Timeline */}
       <div
         className="
           flex
@@ -109,11 +105,9 @@ function Navbar({ dashboardName, setDashboardName, onClearAll }) {
         <span className="text-(--ink-3) text-[9px] ml-0.5">▾</span>
       </div>
 
-      {/* Buttons */}
       <NavButton icon={"↓"} title={"Download"} />
       <NavButton icon={"↗"} title={"Share"} />
 
-      {/* Clear All */}
       <button
         type="button"
         onClick={onClearAll}

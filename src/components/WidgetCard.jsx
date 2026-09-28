@@ -76,10 +76,6 @@ function WidgetCard({
     }
   };
 
-  /* =========================
-     L1
-  ========================= */
-
   const renderL1 = () => {
     if (widget.type === "gauge") {
       return (
@@ -131,17 +127,7 @@ function WidgetCard({
     );
   };
 
-  /* =========================
-     L2
-  ========================= */
-
   const renderL2 = () => {
-    /*
-      DONUT
-      -------------------------
-      Removed kpi.name + kpi.valFmt
-      from beside the donut.
-    */
     if (widget.type === "donut") {
       return (
         <div className="w-full">
@@ -203,10 +189,6 @@ function WidgetCard({
       </div>
     );
   };
-
-  /* =========================
-     L3
-  ========================= */
 
   const renderL3 = () => {
     if (widget.type === "table") {
@@ -273,12 +255,6 @@ function WidgetCard({
       );
     }
 
-    /*
-      DONUT L3
-      -------------------------
-      Only chart is shown.
-      Removed bottom KPI name/value section.
-    */
     if (widget.type === "donut") {
       return (
         <div className="px-[14px] pt-[14px] pb-3">
@@ -362,10 +338,6 @@ function WidgetCard({
     );
   };
 
-  /* =========================
-     CARD
-  ========================= */
-
   return (
     <div
       onClick={onSelect}
@@ -389,7 +361,6 @@ function WidgetCard({
         }
       `}
     >
-      {/* HEADER */}
       <div
         className="
           px-3
@@ -437,7 +408,6 @@ function WidgetCard({
           {type?.name || widget.type}
         </span>
 
-        {/* SIZE PILL */}
         <div
           className="
             flex
@@ -477,7 +447,6 @@ function WidgetCard({
         </div>
       </div>
 
-      {/* OVERLAY */}
       <div
         className={`
           absolute
@@ -555,7 +524,6 @@ function WidgetCard({
         </button>
       </div>
 
-      {/* BODY */}
       {widget.size === "l1" && renderL1()}
       {widget.size === "l2" && renderL2()}
       {widget.size === "l3" && renderL3()}

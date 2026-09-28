@@ -34,7 +34,6 @@ function ConfigPanel({
         overflow-hidden
       "
     >
-      {/* Header */}
       <div
         className="
           px-3.5
@@ -75,7 +74,6 @@ function ConfigPanel({
         </button>
       </div>
 
-      {/* Body */}
       <div className="flex-1 min-h-0 overflow-y-auto p-3.5">
         <div className="bg-[#f7f7f8] rounded-lg p-[10px_12px] mb-3">
           <div className="text-[13px] font-bold text-(--ink) mb-1 truncate">
@@ -90,7 +88,6 @@ function ConfigPanel({
           </div>
         </div>
 
-        {/* Widget Type */}
         <div className="mb-4.5">
           <span
             className="
@@ -140,7 +137,6 @@ function ConfigPanel({
           </div>
         </div>
 
-        {/* Pocket Size */}
         <div className="mb-4.5">
           <span
             className="
@@ -185,7 +181,6 @@ function ConfigPanel({
           </div>
         </div>
 
-        {/* Drill Down */}
         <button
           type="button"
           onClick={onDrilldown}
@@ -209,7 +204,6 @@ function ConfigPanel({
           🔍 Drill Down
         </button>
 
-        {/* Remove */}
         <button
           type="button"
           onClick={onRemove}
