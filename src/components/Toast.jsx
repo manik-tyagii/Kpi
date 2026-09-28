@@ -33,7 +33,7 @@ function Toast({ message, visible }) {
         whitespace-nowrap
       "
     >
-      <span className="text-[#E20074] mr-2">✓</span>
+      
       {message}
     </div>
   );
