@@ -178,7 +178,7 @@ function Sidebar({
             hover:text-white
           "
         >
-          {sidebarOpen ? "◀" : "▶"}
+          ◀
         </button>
       </div>
 

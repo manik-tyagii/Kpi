@@ -130,10 +130,7 @@ function App() {
         onConfirm={handleAddWidget}
       />
 
-      <DrilldownModal
-        kpi={drilldownKpi}
-        onClose={closeDrilldownModal}
-      />
+      <DrilldownModal kpi={drilldownKpi} onClose={closeDrilldownModal} />
 
       <Toast message={toast.message} visible={toast.visible} />
     </div>
