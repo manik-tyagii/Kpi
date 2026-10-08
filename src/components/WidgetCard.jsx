@@ -203,7 +203,7 @@ function WidgetCard({
       return (
         <div className="px-[14px] pt-[14px] pb-3">
           <div className="relative h-[200px] flex items-center justify-center">
-            <div className="w-full max-w-[160px]">
+            <div className="w-full max-w-[160px] h-[160px]">
               <GaugeWidget kpi={kpi} />
             </div>
           </div>
